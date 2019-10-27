@@ -1,3 +1,4 @@
+<input [(ngModel)]="product_filter" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 <table class="table">
   <thead>
     <tr>
@@ -8,11 +9,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Test</td>
-      <td>25€</td>
-      <td>10</td>
-    </tr>
+<tr *ngFor="let product of filtered_products">
+<td>{{product.id}}</td>
+<td>{{product.name}}</td>
+<td>{{product.price}} €</td>
+<td>{{product.qty}}</td>
+
+</tr>
   </tbody>
 </table>

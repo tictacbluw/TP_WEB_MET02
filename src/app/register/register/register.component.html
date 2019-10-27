@@ -42,7 +42,7 @@
   <div class="form-group">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-     <small id="passwordHelp" class="form-text text-muted"><font color="red">{{passwordHelper}}</font></small>
+     <small ng-bind-html id="passwordHelp" class="form-text text-muted"><font color="red"><p>{{passwordLenghtHelper}}</p><p>{{passwordUpperAndDigitHelper}}</p></font></small>
   </div>
   <button  type="submit" [disabled]="!profileForm.valid" class="btn btn-primary">Submit</button>
 </form>

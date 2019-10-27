@@ -15,7 +15,8 @@ export class RegisterComponent implements OnInit {
   emailHelper = "";
   phoneHelper = "";
   loginHelper = "";
-  passwordHelper = "";
+  passwordLenghtHelper = "";  
+  passwordUpperAndDigitHelper = "";
 
   profileForm = new FormGroup({
 
@@ -43,7 +44,8 @@ export class RegisterComponent implements OnInit {
     this.emailHelper = "";
     this.phoneHelper = "";
     this.loginHelper = "";
-    this.passwordHelper = "";  
+    this.passwordLenghtHelper = "";  
+    this.passwordUpperAndDigitHelper = "";
     
   if (/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/.test(this.profileForm.value.email) == false) {
     this.emailHelper = "invalid e-mail address";
@@ -58,11 +60,12 @@ export class RegisterComponent implements OnInit {
   }
 
     if (/^.{6,32}$/.test(this.profileForm.value.password) == false) {
-    this.passwordHelper += "password must contains between 6-32 characters ! ";
+
+    this.passwordLenghtHelper = "password must contains between 6-32 characters ! ";
   }
 
-      if ( /(?=.*\d)(?=.*[A-Z])(?=.*\W)./.test(this.profileForm.value.password) == false) {
-    this.passwordHelper += "password must contains at least 1 uppercase and 1 digit characters ! ";
+  if ( /(?=.*\d)(?=.*[A-Z])(?=.*\W)./.test(this.profileForm.value.password) == false) {
+    this.passwordUpperAndDigitHelper = "password must contains at least 1 uppercase and 1 digit characters ! ";
   }
   }
 }

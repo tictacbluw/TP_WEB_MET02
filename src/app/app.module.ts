@@ -7,10 +7,13 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { HeaderComponent } from './header/header.component';
 import { CatalogService } from './catalog.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule ],
-  declarations: [ AppComponent, HelloComponent, CatalogComponent, HeaderComponent ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule ],
+  declarations: [ AppComponent, HelloComponent, CatalogComponent, HeaderComponent, RegisterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ CatalogService ]
 })

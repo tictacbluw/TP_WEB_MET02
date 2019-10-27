@@ -1,0 +1,48 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp" placeholder="John" formControlName="firstname">
+    <small id="firstnameHelp" class="form-text text-muted">{{firstnameHelper}}</small>
+  </div>
+    <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp" placeholder="Doe" formControlName="lastname">
+    <small id="lastnameHelp" class="form-text text-muted">{{lastnameHelper}}</small>
+  </div>
+    <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address" aria-describedby="addressHelp" placeholder="23 rue bidon" formControlName="address">
+    <small id="addressHelp" class="form-text text-muted">{{addressHelper}}</small>
+  </div>
+    <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" class="form-control" id="city" aria-describedby="cityHelp" placeholder="FakeTown" formControlName="city">
+    <small id="cityHelp" class="form-text text-muted"><font color="red">{{cityHelper}}</font></small>
+  </div>
+    <div class="form-group">
+    <label for="zipcode">Zip code</label>
+    <input type="text" class="form-control" id="zipcode" aria-describedby="zipcodeHelp" placeholder="12345" formControlName="zipcode">
+    <small id="zipcodeHelp" class="form-text text-muted"><font color="red">{{zipcodeHelper}}</font></small>
+  </div>
+    <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="phone" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="00 00 00 00 00" formControlName="phone">
+    <small id="phoneHelp" class="form-text text-muted"><font color="red">{{phoneHelper}}</font></small>
+  </div>
+    <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="johndoe@missing.org" formControlName="email">
+    <small id="emailHelp" class="form-text text-muted"><font color="red">{{emailHelper}}</font></small>
+  </div>
+  <div class="form-group">
+    <label for="login">Login</label>
+    <input type="text" class="form-control" id="login" aria-describedby="loginHelp" placeholder="Legend29" formControlName="login">
+    <small id="emailHelp" class="form-text text-muted"><font color="red">{{loginHelper}}</font></small>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+     <small id="passwordHelp" class="form-text text-muted"><font color="red">{{passwordHelper}}</font></small>
+  </div>
+  <button  type="submit" [disabled]="!profileForm.valid" class="btn btn-primary">Submit</button>
+</form>

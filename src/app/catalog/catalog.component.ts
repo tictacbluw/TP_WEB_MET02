@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogService } from '../catalog.service';
+import {AddArticle} from './action/add-article';
+import {RemoveArticle} from './action/remove-article';
+import {Product} from './product';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
@@ -7,21 +12,22 @@ import { CatalogService } from '../catalog.service';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  public products: any;
-  public filtered_products: any;
+  public products: Product[];
+  public filtered_products: Product[];
+  public shoppingCart: Observable<Product>;
 
   private _product_filter = "";
-  constructor( private catalogService: CatalogService) 
+  constructor( private catalogService: CatalogService, private store: Store) 
   {
     this._product_filter = "";
     this.filtered_products = this.products;
-
+    this.shoppingCart = this.store.select(state => state.users.users);
   }
 
-  doFilter(filterBy: string): any[] 
+  doFilter(filterBy: string): Product[] 
   {
     filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product: any) => product.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    return this.products.filter((product: Product[]) => product.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
   get product_filter(): string 
   {
@@ -37,7 +43,7 @@ export class CatalogComponent implements OnInit {
   }
   public ngOnInit(): void {
     this.catalogService.getData()
-      .subscribe((data: any): void => {
+      .subscribe((data: Product[]): void => {
         console.info(data);
         this.products = data;
         this.filtered_products = this.products;

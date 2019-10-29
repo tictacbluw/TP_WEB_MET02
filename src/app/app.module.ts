@@ -9,10 +9,11 @@ import { CatalogService } from './catalog.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { NgxsModule } from '@ngxs/store';
+import  {ShoppingCart} from './catalog/state/shopping-cart';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule, NgxsModule.forRoot([ShoppingCart]) ],
   declarations: [ AppComponent, HelloComponent, CatalogComponent, HeaderComponent, RegisterComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ CatalogService ]

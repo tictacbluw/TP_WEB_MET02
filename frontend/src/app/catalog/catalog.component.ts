@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from './product';
+import {Category} from './category';
+import { ActivatedRoute } from "@angular/router";
+import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { CatalogService } from '../catalog.service';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-catalog',
@@ -10,22 +14,39 @@ import { CatalogService } from '../catalog.service';
 })
 
 export class CatalogComponent implements OnInit {
-  public products: Product[];
-  public filtered_products: Product[];
-  public shoppingCart: Observable<Product>;
+  products: Observable<Product[]>;
+  categories: Observable<Category[]>;
+  search_form;
 
-  constructor(private catalogService: CatalogService) 
+  isLoading: boolean = false;
+  constructor(private catalogService: CatalogService, private route: ActivatedRoute, private formBuilder: FormBuilder)
   {
-    this.filtered_products = this.products;
+
+  }
+  searchProduct(data?: string) {
+    console.log(data);
+    this.isLoading = true;
+    this.products = this.catalogService.getCatalog();
+    this.products.pipe(
+      map(
+        (products: Product[]) => products.filter(
+          (product: Product) => product.name == data
+        )
+      )
+    ).subscribe(() => {this.isLoading = false});
+    console.log(this.products);
   }
 
-
   public ngOnInit(): void {
-    this.catalogService.getCatalog().subscribe((data: Product[])=>{
-      console.log(data);
-      this.products = data;
-  })
+    this.categories = this.catalogService.getCategories();
+
+    this.search_form = this.formBuilder.group({
+      search_input: ['', []]
+    });
+
+    this.searchProduct();
 
 }
+
 
 }

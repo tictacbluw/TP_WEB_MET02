@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CatalogService } from './catalog.service';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';  
+import { AccountService } from './account.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule, 
     ReactiveFormsModule 
   ],
-  providers: [CatalogService ],
+  providers: [CatalogService , AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

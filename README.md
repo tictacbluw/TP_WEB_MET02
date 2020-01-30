@@ -26,6 +26,8 @@ mot de passe : mdp
  
  - créer une application angular `ng new frontend`.
  
+ - placer le contenu du dossier `frontend` dans le dossier nouvellement crée
+ 
  - dans un terminal pointant dans le dossier frontend lancer la commande "nmp install".
 
 -lancer le front avec la commande "ng serve".

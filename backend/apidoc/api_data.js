@@ -401,7 +401,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Body-Example:",
-        "content": "{\n  \"name\": \"Product toto\",\n  \"description\": \"Best product ever !\",\n  \"price\" : 10,\n  \"quantity\": 5,\n  \"images\" : [\"urlimage1.jpg\", \"urlimage2.jps\"]\n}",
+        "content": "{\n  \"name\": \"Product toto\",\n  \"description\": \"Best product ever !\",\n  \"price\" : 10,\n  \"quantity\": 5,\n  \"img\" : \"urlimage1.jpg\"\n}",
         "type": "json"
       }
     ],

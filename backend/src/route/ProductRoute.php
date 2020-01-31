@@ -119,7 +119,7 @@ $app->group('/api', function(\Slim\App $app) {
  *       "description": "Best product ever !",
  *       "price" : 10,
  *       "quantity": 5,
- *       "images" : ["urlimage1.jpg", "urlimage2.jps"]
+ *       "img" : "urlimage1.jpg"
  *     }
  *
  * @apiSuccess {String} result Success.

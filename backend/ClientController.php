@@ -21,7 +21,7 @@ class ClientController
 	 */
 	public static function checkPhone($phone)
 	{
-		return preg_match ( " \^(\d\d\s){4}(\d\d)$\ " , $phone );
+		return preg_match ( " /^(\d\d\s){4}(\d\d)$/ " , $phone );
 	}
 
 	/**
@@ -32,7 +32,7 @@ class ClientController
 	 */
 	public static function checkName($name)
 	{
-        return preg_match (" ^\w+$ ", $name);
+        return preg_match (" /^\w+$/ ", $name);
 	}
 
 	/**
@@ -42,7 +42,7 @@ class ClientController
 	 */
 	public static function checkPassword($password)
 	{
-        return preg_match (" ^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$ ", $password);
+        return preg_match (" /^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/ ", $password);
 	}
 
 
